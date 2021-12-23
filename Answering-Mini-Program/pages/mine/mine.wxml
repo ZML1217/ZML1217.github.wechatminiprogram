@@ -1,0 +1,40 @@
+<!-- 获取头像 -->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+
+
+<!--个人中心-->
+<view class="main">
+<view class="menu">
+  <navigator url="/pages/logs/logs" class="navigator">
+    <image class="button_image" src="{{picsrc.src1}}"></image>
+    <text class="button_text">我的成绩</text>
+  </navigator>
+
+  <navigator url="/pages/shoucang/shoucang" class="navigator">
+    <image class="button_image" src="{{picsrc.src2}}"></image>
+    <text class="button_text">我的收藏</text>
+  </navigator>
+
+  <navigator url="/pages/pinglun/pinglun" class="navigator" open-type="navigate">
+    <image class="button_image" src="{{picsrc.src3}}"></image>
+    <text class="button_text">我的评论</text>
+  </navigator>
+
+  <navigator url="/pages/set/set" class="navigator">
+    <image class="button_image" src="{{picsrc.src4}}"></image>
+    <text class="button_text">我的设置</text>
+  </navigator>
+</view>
+</view>
+
